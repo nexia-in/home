@@ -294,6 +294,10 @@ export default function App() {
     setLanguage(lang);
     setSelectedService(null);
     setShowContact(false);
+    // Scroll to top of page to show Welcome Guest area
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleServiceSelect = (serviceId: string) => {
@@ -799,7 +803,7 @@ export default function App() {
                         </div>
                         <div>
                           <p className="text-sm text-slate-500">{t('ഫോൺ / വാട്സ്ആപ്പ്', 'Phone / WhatsApp')}</p>
-                          <a href="tel:+919961860698" className="font-bold text-slate-800 hover:text-green-600 transition-colors">+91 99618 60698</a>
+                          <a href="tel:+919961850698" className="font-bold text-slate-800 hover:text-green-600 transition-colors">+91 99618 50698</a>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
@@ -1080,7 +1084,7 @@ export default function App() {
               }`}>
                 <div className="text-center mb-8">
                   <h4 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
-                    {t('ഞങ്ങൾ എന്തുകൊണ്ട് തിരഞ്ഞെടുക്കണം?', 'Why Choose Nexia Virtual Desk?')}
+                    {t('എന്തുകൊണ്ട് ഞങ്ങളെ തിരഞ്ഞെടുക്കണം?', 'Why Choose Nexia Virtual Desk?')}
                   </h4>
                   <p className="text-slate-600 max-w-2xl mx-auto">
                     {t(
@@ -1123,7 +1127,7 @@ export default function App() {
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a
-                      href="tel:+919961860698"
+                      href="tel:+919961850698"
                       className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/30 flex items-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1197,7 +1201,7 @@ export default function App() {
                   <svg className="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  +91 99618 60698
+                  +91 99618 50698
                 </li>
                 <li className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

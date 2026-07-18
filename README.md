@@ -101,20 +101,34 @@ npm run preview
 
 ```
 nexia-virtual-desk/
+├── public/                  # 👉 PUT thumbnail.jpg HERE 👈
+│   └── thumbnail.jpg        # Social media preview image (1200x630px recommended)
 ├── src/
 │   ├── App.tsx              # Main application component
 │   ├── main.tsx             # Application entry point
 │   ├── index.css            # Global styles
 │   └── utils/
 │       └── cn.ts            # Utility functions
-├── public/                  # Static assets
-├── index.html               # HTML template
+├── index.html               # HTML template (with OG meta tags)
 ├── vite.config.ts           # Vite configuration
 ├── tsconfig.json            # TypeScript configuration
 ├── package.json             # Dependencies & scripts
 ├── .gitignore               # Git ignore rules
 └── README.md                # This file
 ```
+
+---
+
+## 🖼️ Add Thumbnail Image (For Social Sharing)
+
+1. **Create** a folder named `public` in your project root (if not exists)
+2. **Save** your thumbnail image as: `public/thumbnail.jpg`
+3. **Recommended size:** 1200 × 630 pixels (1.91:1 ratio)
+4. **File size:** Keep under 300KB for fast loading
+
+> ✅ This image will automatically show when sharing links on WhatsApp, Facebook, Twitter, LinkedIn, etc.
+> 
+> ✅ Meta tags are already configured in `index.html` - no code changes needed!
 
 ---
 
