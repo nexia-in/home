@@ -284,6 +284,7 @@ export default function App() {
   const [selectedService, setSelectedService] = useState<SelectedService>(null);
   const [showContact, setShowContact] = useState(false);
   const [showEnquiryPopup, setShowEnquiryPopup] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [enquiryForm, setEnquiryForm] = useState({
     name: '',
     phone: '',
@@ -348,6 +349,24 @@ export default function App() {
     window.open(whatsappUrl, '_blank');
     setShowEnquiryPopup(false);
     setEnquiryForm({ name: '', phone: '', location: '' });
+    // Show thank you popup after sending
+    setTimeout(() => {
+      setShowThankYou(true);
+    }, 500);
+  };
+
+  const handleCloseSite = () => {
+    // Try to close the window/tab
+    window.open('', '_self');
+    window.close();
+    // Fallback: show a message if the browser blocks closing
+    setTimeout(() => {
+      alert(
+        language === 'malayalam'
+          ? 'വിൻഡോ അടയ്ക്കാൻ ബ്രൗസർ അനുവദിക്കുന്നില്ല. ദയവായി ടാബ് അടയ്ക്കുക.'
+          : 'Browser does not allow closing this window. Please close the tab manually.'
+      );
+    }, 300);
   };
 
   const selectedServiceData = services.find(s => s.id === selectedService);
@@ -357,7 +376,7 @@ export default function App() {
   const t = (ml: string, en: string) => language === 'malayalam' ? ml : en;
 
   useEffect(() => {
-    if (showEnquiryPopup) {
+    if (showEnquiryPopup || showThankYou) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -365,7 +384,7 @@ export default function App() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [showEnquiryPopup]);
+  }, [showEnquiryPopup, showThankYou]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -469,6 +488,50 @@ export default function App() {
         </div>
       )}
 
+      {/* Thank You Popup */}
+      {showThankYou && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-slideUp">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-8 text-white text-center relative">
+              <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur rounded-full mb-4 animate-bounce">
+                <svg className="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">
+                {t('നന്ദി!', 'Thank You!')}
+              </h3>
+            </div>
+            <div className="p-8 text-center">
+              <p className="text-slate-700 text-lg leading-relaxed mb-6">
+                {t(
+                  'നിങ്ങളുടെ സമർപ്പണത്തിന് നന്ദി. ഒരു നെക്സിയ പ്രതിനിധി ഉടൻ തന്നെ നിങ്ങളുമായി ബന്ധപ്പെടും. ✅',
+                  'Thank you for your submission. A Nexia representative will contact you soon. ✅'
+                )}
+              </p>
+              <div className="bg-green-50 rounded-xl p-4 mb-6 border border-green-100">
+                <p className="text-sm text-green-700">
+                  {t(
+                    '📱 വാട്സ്ആപ്പ് വഴി ഞങ്ങളുമായി ബന്ധപ്പെടാം',
+                    '📱 You can also reach us on WhatsApp'
+                  )}
+                </p>
+                <p className="font-bold text-green-800 mt-1">+91 99618 50698</p>
+              </div>
+              <button
+                onClick={handleCloseSite}
+                className="w-full py-4 bg-gradient-to-r from-slate-700 to-slate-900 text-white font-bold rounded-xl hover:from-slate-800 hover:to-slate-950 transition-all shadow-lg flex items-center justify-center gap-2 text-lg"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {t('അടയ്ക്കുക', 'Close')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -532,9 +595,31 @@ export default function App() {
             )}
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            {t(
+            {!language && t(
               'CV, റെസ്യൂമെ, പോർട്ട്ഫോളിയോ, കവർ ലെറ്റർ തുടങ്ങിയവ നിർമ്മിക്കുന്നതിലൂടെ നിങ്ങളുടെ കരിയർ മെച്ചപ്പെടുത്താൻ ഞങ്ങൾ സഹായിക്കുന്നു.',
               'We help you advance your career by creating professional CVs, Resumes, Portfolios, Cover Letters, and more.'
+            )}
+            {language && !selectedService && (
+              <span className="inline-flex items-center gap-2 text-indigo-600 font-semibold">
+                <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                {t(
+                  'ഒരു പാക്കേജ് തിരഞ്ഞെടുക്കാൻ താഴേക്ക് സ്ക്രോൾ ചെയ്യുക',
+                  'Scroll down for select a package'
+                )}
+              </span>
+            )}
+            {selectedService && (
+              <span className="inline-flex items-center gap-2 text-indigo-600 font-semibold">
+                <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                {t(
+                  'തിരഞ്ഞെടുത്ത പാക്കേജിനെക്കുറിച്ച് കൂടുതൽ അറിയുക. തുടരാൻ താഴേക്ക് സ്ക്രോൾ ചെയ്യുക.',
+                  'Learn more about your selected package. Scroll down to continue.'
+                )}
+              </span>
             )}
           </p>
         </section>
@@ -550,7 +635,7 @@ export default function App() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-2">
-                  Select Your Comfortable Language
+                  Scroll down for Select Your Comfortable Language
                 </h3>
                 <p className="text-slate-500">
                   തുടരാൻ നിങ്ങൾക്ക് സൗകര്യമുള്ള ഭാഷ തിരഞ്ഞെടുക്കുക
