@@ -47,7 +47,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'പിഡിഎഫ് ആന്റ് വേഡ് ഫോർമാറ്റുകൾ'
     ],
-    priceRange: '₹499 to ₹799',
+    priceRange: '₹199 to ₹799',
     priceTooltip: "Package charge depends on your information's complexity",
     priceTooltipMl: 'നിങ്ങളുടെ വിവരങ്ങളുടെ സങ്കീർണ്ണതയെ ആശ്രയിച്ച് പാക്കേജ് ചാർജ് നിർണ്ണയിക്കും',
     duration: '2-3 Days',
@@ -77,7 +77,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'എക്സ്പ്രസ് ഡെലിവറി ലഭ്യമാണ്'
     ],
-    priceRange: '₹399 to ₹699',
+    priceRange: '₹199 to ₹699',
     priceTooltip: "Package charge depends on your experience level and details",
     priceTooltipMl: 'നിങ്ങളുടെ അനുഭവ നിലവാരവും വിവരങ്ങളും ആശ്രയിച്ച് പാക്കേജ് ചാർജ്',
     duration: '1-2 Days',
@@ -107,7 +107,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'സോഷ്യൽ മീഡിയ സംയോജനം'
     ],
-    priceRange: '₹1,499 to ₹2,999',
+    priceRange: '₹499 to ₹2,999',
     priceTooltip: "Package charge depends on complexity and number of projects",
     priceTooltipMl: 'സങ്കീർണ്ണതയും പ്രോജക്ടുകളുടെ എണ്ണവും ആശ്രയിച്ച് പാക്കേജ് ചാർജ്',
     duration: '5-7 Days',
@@ -137,7 +137,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'ബഹു-ഭാഷ പിന്തുണ'
     ],
-    priceRange: '₹699 to ₹999',
+    priceRange: '₹399 to ₹999',
     priceTooltip: "Package charge depends on your experience and qualifications",
     priceTooltipMl: 'നിങ്ങളുടെ അനുഭവവും യോഗ്യതകളും ആശ്രയിച്ച് പാക്കേജ് ചാർജ്',
     duration: '2-3 Days',
@@ -167,7 +167,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'കോൾ-ടു-ആക്ഷൻ ക്ലോസിംഗ്'
     ],
-    priceRange: '₹249 to ₹499',
+    priceRange: '₹149 to ₹499',
     priceTooltip: "Package charge depends on complexity and customization",
     priceTooltipMl: 'സങ്കീർണ്ണതയും ഇടപാടും ആശ്രയിച്ച് പാക്കേജ് ചാർജ്',
     duration: '1 Day',
@@ -197,7 +197,7 @@ const services: ServiceInfo[] = [
       '7 ദിവസത്തിനുള്ളിൽ 1 തിരുത്തൽ',
       'കന്റെന്റ് പോസ്റ്റിംഗ് ടിപ്സ്'
     ],
-    priceRange: '₹599 to ₹899',
+    priceRange: '₹299 to ₹899',
     priceTooltip: "Package charge depends on current profile and optimization level",
     priceTooltipMl: 'നിലവിലെ പ്രൊഫൈലും ഒപ്റ്റിമൈസേഷൻ നിലവാരവും ആശ്രയിച്ച് പാക്കേജ് ചാർജ്',
     duration: '2-3 Days',
